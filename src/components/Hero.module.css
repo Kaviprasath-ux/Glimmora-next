@@ -24,7 +24,10 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 100%);
+  background: linear-gradient(180deg,
+    rgba(0, 0, 0, 0.4) 0%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.6) 100%);
   z-index: 1;
 }
 
@@ -32,6 +35,61 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+  animation: kenBurns 30s ease-in-out infinite alternate;
+}
+
+@keyframes kenBurns {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.floatingElement {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(165, 120, 101, 0.15) 0%, transparent 70%);
+  filter: blur(40px);
+  animation: float 20s ease-in-out infinite;
+  z-index: 1;
+}
+
+.float1 {
+  width: 300px;
+  height: 300px;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.float2 {
+  width: 400px;
+  height: 400px;
+  bottom: 10%;
+  right: 10%;
+  animation-delay: 7s;
+}
+
+.float3 {
+  width: 250px;
+  height: 250px;
+  top: 50%;
+  right: 20%;
+  animation-delay: 14s;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) translateX(0);
+  }
+  33% {
+    transform: translateY(-30px) translateX(30px);
+  }
+  66% {
+    transform: translateY(30px) translateX(-30px);
+  }
 }
 
 .heroContent {
@@ -39,25 +97,88 @@
   z-index: 2;
   text-align: center;
   color: white;
-  max-width: 900px;
+  max-width: 1000px;
   padding: 0 var(--space-6);
-  margin-top: -80px;
+  margin-top: -60px;
+}
+
+.badge {
+  display: inline-block;
+  padding: var(--space-2) var(--space-6);
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-full);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-semibold);
+  letter-spacing: 2px;
+  margin-bottom: var(--space-6);
+  text-transform: uppercase;
 }
 
 .heroTitle {
-  font-size: 64px;
+  font-size: 72px;
   font-weight: var(--fw-bold);
   line-height: 1.1;
   margin-bottom: var(--space-6);
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
+  letter-spacing: -1px;
+}
+
+.highlight {
+  background: linear-gradient(135deg, #FFFFFF 0%, var(--primary-light) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 .heroSubtitle {
-  font-size: var(--fs-xl);
-  font-weight: var(--fw-medium);
+  font-size: 22px;
+  font-weight: var(--fw-regular);
   margin-bottom: var(--space-12);
   opacity: 0.95;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 15px rgba(0, 0, 0, 0.4);
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.scrollIndicator {
+  position: absolute;
+  bottom: var(--space-8);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+  animation: bounce 2s ease-in-out infinite;
+  z-index: 2;
+  cursor: pointer;
+}
+
+.scrollText {
+  font-size: var(--fs-xs);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
+  opacity: 0.8;
+}
+
+.scrollArrow {
+  color: white;
+  opacity: 0.8;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  50% {
+    transform: translateX(-50%) translateY(10px);
+  }
 }
 
 .bookingWidget {

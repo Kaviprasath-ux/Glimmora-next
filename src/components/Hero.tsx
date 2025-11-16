@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Sparkles } from 'lucide-react';
+import { Sparkles, ChevronDown } from 'lucide-react';
 import { Button } from './ui';
 import styles from './Hero.module.css';
 
@@ -7,15 +7,19 @@ export const Hero = () => {
   const fadeInUp = {
     initial: { opacity: 0, y: 60 },
     animate: { opacity: 1, y: 0 },
-    transition: { duration: 0.6 }
+    transition: { duration: 0.8, ease: [0.6, -0.05, 0.01, 0.99] }
   };
 
   const staggerChildren = {
     animate: {
       transition: {
-        staggerChildren: 0.1
+        staggerChildren: 0.15
       }
     }
+  };
+
+  const scrollToFeatures = () => {
+    document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -26,6 +30,11 @@ export const Hero = () => {
           alt="Luxury Hotel"
           className={styles.heroImage}
         />
+
+        {/* Floating decorative elements */}
+        <div className={`${styles.floatingElement} ${styles.float1}`} />
+        <div className={`${styles.floatingElement} ${styles.float2}`} />
+        <div className={`${styles.floatingElement} ${styles.float3}`} />
       </div>
 
       <motion.div
@@ -34,12 +43,17 @@ export const Hero = () => {
         animate="animate"
         variants={staggerChildren}
       >
+        <motion.div className={styles.badge} variants={fadeInUp}>
+          ✨ Welcome to the Future of Hospitality
+        </motion.div>
+
         <motion.h1 className={styles.heroTitle} variants={fadeInUp}>
-          Experience AI-Powered Hospitality
+          Experience <span className={styles.highlight}>AI-Powered</span> Luxury
         </motion.h1>
 
         <motion.p className={styles.heroSubtitle} variants={fadeInUp}>
-          Where luxury meets innovation - powered by Glimmora AI
+          Where cutting-edge technology meets timeless elegance.
+          Your journey to effortless comfort begins here.
         </motion.p>
 
         <motion.div
@@ -104,6 +118,18 @@ export const Hero = () => {
             Check Availability
           </Button>
         </motion.div>
+      </motion.div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        className={styles.scrollIndicator}
+        onClick={scrollToFeatures}
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1.5 }}
+      >
+        <span className={styles.scrollText}>Discover More</span>
+        <ChevronDown size={24} className={styles.scrollArrow} />
       </motion.div>
     </section>
   );

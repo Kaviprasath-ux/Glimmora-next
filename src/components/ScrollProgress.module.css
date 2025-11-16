@@ -1,0 +1,11 @@
+.progressBar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-main) 0%, var(--primary-light) 100%);
+  transform-origin: left;
+  z-index: 9999;
+  box-shadow: 0 2px 8px rgba(165, 120, 101, 0.3);
+}
