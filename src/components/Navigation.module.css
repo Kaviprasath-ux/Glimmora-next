@@ -1,0 +1,154 @@
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-sticky);
+  transition: all var(--transition-base);
+}
+
+.navScrolled {
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-md);
+}
+
+.navContent {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+  padding: 0 var(--space-8);
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.logo {
+  font-size: var(--fs-2xl);
+  font-weight: var(--fw-bold);
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.logo:hover {
+  color: var(--primary-main);
+}
+
+.logoIcon {
+  color: var(--primary-main);
+}
+
+.navLinks {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.navLink {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-medium);
+  color: var(--text-primary);
+  text-decoration: none;
+  position: relative;
+  padding: var(--space-2) 0;
+  transition: color var(--transition-base);
+}
+
+.navLink::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--primary-main);
+  transform: scaleX(0);
+  transition: transform var(--transition-base);
+}
+
+.navLink:hover {
+  color: var(--primary-main);
+}
+
+.navLink:hover::after {
+  transform: scaleX(1);
+}
+
+.navActions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+}
+
+.mobileMenuButton {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: var(--space-2);
+}
+
+.mobileMenu {
+  display: none;
+  position: fixed;
+  top: 80px;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(12px);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-lg);
+}
+
+.mobileMenuOpen {
+  display: block;
+}
+
+.mobileMenuLinks {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.mobileMenuLink {
+  font-size: var(--fs-base);
+  font-weight: var(--fw-medium);
+  color: var(--text-primary);
+  text-decoration: none;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+}
+
+.mobileMenuLink:hover {
+  background-color: var(--primary-bg);
+  color: var(--primary-main);
+}
+
+@media (max-width: 1024px) {
+  .navLinks {
+    display: none;
+  }
+
+  .mobileMenuButton {
+    display: block;
+  }
+}
+
+@media (max-width: 768px) {
+  .navContent {
+    padding: 0 var(--space-4);
+    height: 64px;
+  }
+
+  .logo {
+    font-size: var(--fs-xl);
+  }
+
+  .mobileMenu {
+    top: 64px;
+  }
+}

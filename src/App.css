@@ -4,63 +4,53 @@
   flex-direction: column;
 }
 
-/* Header */
-.header {
-  position: sticky;
-  top: 0;
-  z-index: var(--z-sticky);
-  height: 72px;
-  background-color: var(--bg-primary);
-  border-bottom: 1px solid var(--border-light);
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  align-items: center;
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
 }
 
-.nav-link {
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-medium);
-  color: var(--text-primary);
-  text-decoration: none;
-  transition: color var(--transition-base);
+/* Custom scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+  width: 10px;
 }
 
-.nav-link:hover {
-  color: var(--primary-main);
+::-webkit-scrollbar-track {
+  background: var(--neutral-100);
 }
 
-/* Hero Section */
-.hero {
-  background: linear-gradient(135deg, var(--primary-bg) 0%, var(--neutral-100) 100%);
-  padding: var(--space-20) 0;
-  min-height: 500px;
-  display: flex;
-  align-items: center;
+::-webkit-scrollbar-thumb {
+  background: var(--primary-main);
+  border-radius: var(--radius-full);
 }
 
-.hero-content {
-  max-width: 720px;
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-dark);
 }
 
-/* Footer */
-.footer {
-  margin-top: auto;
-  background-color: var(--neutral-800);
-  padding: var(--space-16) 0;
+/* Selection colors */
+::selection {
+  background-color: var(--primary-light);
+  color: white;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .header {
-    height: 64px;
-  }
+::-moz-selection {
+  background-color: var(--primary-light);
+  color: white;
+}
 
-  .hero {
-    padding: var(--space-12) 0;
-    min-height: 400px;
-  }
+/* Focus visible for accessibility */
+*:focus-visible {
+  outline: 2px solid var(--primary-main);
+  outline-offset: 2px;
+}
 
-  .nav-link {
-    display: none;
-  }
+/* Image loading optimization */
+img {
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Performance optimization for animations */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
