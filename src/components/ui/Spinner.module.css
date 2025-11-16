@@ -1,0 +1,88 @@
+.spinner {
+  display: inline-block;
+  border-radius: var(--radius-full);
+  border-style: solid;
+  border-color: currentColor;
+  border-right-color: transparent;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Sizes */
+.small {
+  width: 16px;
+  height: 16px;
+  border-width: 2px;
+}
+
+.medium {
+  width: 24px;
+  height: 24px;
+  border-width: 3px;
+}
+
+.large {
+  width: 32px;
+  height: 32px;
+  border-width: 3px;
+}
+
+.xlarge {
+  width: 48px;
+  height: 48px;
+  border-width: 4px;
+}
+
+/* Variants */
+.primary {
+  color: var(--primary-main);
+}
+
+.secondary {
+  color: var(--neutral-500);
+}
+
+.white {
+  color: var(--text-white);
+}
+
+/* Container with text */
+.container {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.text {
+  font-size: var(--fs-sm);
+  color: var(--text-secondary);
+  font-weight: var(--fw-medium);
+}
+
+/* Centered spinner */
+.centered {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 100px;
+}
+
+/* Full page overlay */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-overlay);
+  z-index: var(--z-modal);
+}

@@ -1,0 +1,123 @@
+.container {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  user-select: none;
+}
+
+.container.disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.checkboxWrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.checkbox {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.checkboxBox {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  background-color: var(--bg-primary);
+  transition: all var(--transition-base);
+  flex-shrink: 0;
+}
+
+.checkbox:checked + .checkboxBox {
+  background-color: var(--primary-main);
+  border-color: var(--primary-main);
+}
+
+.checkbox:checked + .checkboxBox .checkIcon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.checkbox:focus-visible + .checkboxBox {
+  outline: 2px solid var(--border-focus);
+  outline-offset: 2px;
+}
+
+.checkbox:hover:not(:disabled) + .checkboxBox {
+  border-color: var(--primary-main);
+}
+
+.checkbox:disabled + .checkboxBox {
+  background-color: var(--neutral-100);
+  cursor: not-allowed;
+}
+
+.checkIcon {
+  color: var(--text-white);
+  opacity: 0;
+  transform: scale(0);
+  transition: all var(--transition-fast);
+}
+
+.label {
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-regular);
+  color: var(--text-primary);
+  cursor: pointer;
+}
+
+.container.disabled .label {
+  cursor: not-allowed;
+}
+
+/* Sizes */
+.small .checkboxBox {
+  width: 16px;
+  height: 16px;
+}
+
+.small .label {
+  font-size: var(--fs-xs);
+}
+
+.medium .checkboxBox {
+  width: 20px;
+  height: 20px;
+}
+
+.medium .label {
+  font-size: var(--fs-sm);
+}
+
+.large .checkboxBox {
+  width: 24px;
+  height: 24px;
+}
+
+.large .label {
+  font-size: var(--fs-base);
+}
+
+/* Error state */
+.error .checkboxBox {
+  border-color: var(--error);
+}
+
+.errorMessage {
+  font-size: var(--fs-xs);
+  color: var(--error);
+  margin-top: var(--space-1);
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}

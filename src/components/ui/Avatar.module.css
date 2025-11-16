@@ -1,0 +1,98 @@
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-color: var(--primary-light);
+  color: var(--text-white);
+  font-weight: var(--fw-semibold);
+  user-select: none;
+  border-radius: var(--radius-full);
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Sizes */
+.small {
+  width: 32px;
+  height: 32px;
+  font-size: var(--fs-sm);
+}
+
+.medium {
+  width: 40px;
+  height: 40px;
+  font-size: var(--fs-base);
+}
+
+.large {
+  width: 48px;
+  height: 48px;
+  font-size: var(--fs-lg);
+}
+
+.xlarge {
+  width: 64px;
+  height: 64px;
+  font-size: var(--fs-2xl);
+}
+
+/* Variants */
+.rounded {
+  border-radius: var(--radius-md);
+}
+
+.square {
+  border-radius: var(--radius-sm);
+}
+
+.circular {
+  border-radius: var(--radius-full);
+}
+
+/* Status indicator */
+.statusIndicator {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 25%;
+  height: 25%;
+  border-radius: var(--radius-full);
+  border: 2px solid var(--bg-primary);
+}
+
+.statusOnline {
+  background-color: var(--success);
+}
+
+.statusOffline {
+  background-color: var(--neutral-400);
+}
+
+.statusBusy {
+  background-color: var(--error);
+}
+
+.statusAway {
+  background-color: var(--warning);
+}
+
+/* Avatar Group */
+.avatarGroup {
+  display: inline-flex;
+  align-items: center;
+}
+
+.avatarGroup .avatar {
+  margin-left: -8px;
+  border: 2px solid var(--bg-primary);
+}
+
+.avatarGroup .avatar:first-child {
+  margin-left: 0;
+}

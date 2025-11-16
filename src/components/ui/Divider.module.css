@@ -1,0 +1,89 @@
+.divider {
+  border: none;
+  background-color: var(--border-light);
+  flex-shrink: 0;
+}
+
+/* Orientation */
+.horizontal {
+  width: 100%;
+  height: 1px;
+  margin: var(--space-4) 0;
+}
+
+.vertical {
+  width: 1px;
+  height: 100%;
+  margin: 0 var(--space-4);
+  display: inline-block;
+}
+
+/* Spacing */
+.spacingNone.horizontal {
+  margin: 0;
+}
+
+.spacingNone.vertical {
+  margin: 0;
+}
+
+.spacingSmall.horizontal {
+  margin: var(--space-2) 0;
+}
+
+.spacingSmall.vertical {
+  margin: 0 var(--space-2);
+}
+
+.spacingMedium.horizontal {
+  margin: var(--space-4) 0;
+}
+
+.spacingMedium.vertical {
+  margin: 0 var(--space-4);
+}
+
+.spacingLarge.horizontal {
+  margin: var(--space-6) 0;
+}
+
+.spacingLarge.vertical {
+  margin: 0 var(--space-6);
+}
+
+/* Variant */
+.light {
+  background-color: var(--border-light);
+}
+
+.medium {
+  background-color: var(--border-medium);
+}
+
+.dark {
+  background-color: var(--border-dark);
+}
+
+/* With text */
+.withText {
+  display: flex;
+  align-items: center;
+  gap: var(--space-4);
+  background: transparent;
+  height: auto;
+}
+
+.withText::before,
+.withText::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: var(--border-light);
+}
+
+.text {
+  font-size: var(--fs-sm);
+  color: var(--text-tertiary);
+  font-weight: var(--fw-medium);
+  white-space: nowrap;
+}
